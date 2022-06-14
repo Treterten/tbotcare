@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "start": "node ./server",
-    "start:dev": "nodemon ./server"
+    "start:bot": "node ./bot | pino-pretty",
+    "start:bot:dev": "nodemon ./bot | pino-pretty",
+    "start": "node ./server | pino-pretty",
+    "start:dev": "nodemon ./server | pino-pretty",
+    "deploy-commands": "node ./commands/deploy-commands.js | pino-pretty",
+    "remove-commands": "node ./commands/remove-commands.js | pino-pretty"
   },
   "repository": {
     "type": "git",
@@ -23,11 +27,15 @@
   },
   "homepage": "https://github.com/Treterten/tbotcare#readme",
   "dependencies": {
+    "@discordjs/builders": "^0.15.0",
     "@discordjs/opus": "^0.4.0",
     "@discordjs/rest": "^0.5.0",
-    "discord.js": "^12.5.1",
+    "discord-api-types": "^0.34.0",
+    "discord.js": "^13.8.0",
     "dotenv": "^16.0.1",
-    "express": "^4.17.1"
+    "express": "^4.18.1",
+    "glob": "^8.0.3",
+    "winston": "^3.7.2"
   },
   "devDependencies": {
     "eslint": "^7.20.0",
