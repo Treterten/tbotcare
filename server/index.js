@@ -7,6 +7,11 @@ const app = express();
 
 const { PORT } = process.env;
 
+app.use((req, res, next) => {
+  logger.info(`Received ${req.method} request to ${req.path}`);
+  next();
+});
+
 app.get('/test', (req, res) => {
   res.send('Working');
   logger.info('Test endpoint working');
